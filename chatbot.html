@@ -32,16 +32,11 @@
                 background-color: #0BB5FF;
                 color: #ffffff;
             }
-            iframe {
+            chatbot iframe {
                 display: block;
                 border-style:none;
                 <!--  this should be a comment           margin: 0 auto; -->
-                margin-left:100px;
-            }
-            m {
-                display: block;
-                border-style:none;
-                margin:
+                float:left;
             }
         </style>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
@@ -57,8 +52,9 @@
             <h2>COVID-19 SCREENING CHATBOT</h2>
         </main>
 
-        <iframe style="height:630px; width:580px" src="https://healthcare-bot-62emxs2gw2d3c.azurewebsites.net/"></iframe>
-        <div id='map' style='display: none; width: 400px; height: 300px;'>
+        <iframe style="float: left; height: 630px; width: 580px" src="https://healthcare-bot-62emxs2gw2d3c.azurewebsites.net/"></iframe>
+
+        <div id='map' style='float: right; display: none; width: 630px; height: 580px;'>
 
         </div>
         <button onclick = "show_map()">Show Map</button>
