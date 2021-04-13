@@ -62,6 +62,7 @@ function show_map() {
 //a doctor that can see them at one of those times.
 function retrieve_data(e) { 
     var data_rec = e.target.value;
+    console.log(data_rec);
 
 }
 
