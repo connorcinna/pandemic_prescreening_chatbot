@@ -36,7 +36,7 @@ function setup_map(center) {
     console.log('origin set to: ' + center[0] + ' ' + center[1]);
     map.addControl(directions, 'top-left');
     map.on('load', function () {
-
+    //execute this code every 2 seconds
     window.setInterval(function () {
         var destination_node = document.getElementById("mapboxgl-directions-destination-input");
         var html_content = destination_node.innerHTML;
@@ -51,13 +51,17 @@ function setup_map(center) {
 function show_map() {
     var map_div = document.getElementById("map");
     map_div.style.display = "block";
-    var textbox_div = document.createElement("INPUT");
-    textbox_div.setAttribute("type", "text");
+    var textbox = document.getElementById("user_time");
+    textbox.style.display = "block";
+    textbox.setAttribute("type", "text");
+    textbox.addEventListener("keydown", function (e) {
+        if (e.code === "Enter") retrieve_data(e);
+    });
 }
 //once the times that work for the user are retrieved, pass this to the python script to determine
 //a doctor that can see them at one of those times.
-function retrieve_data(form) { 
-    var data_rec = form.inputbox.value;
+function retrieve_data(e) { 
+    var data_rec = e.target.value;
 
 }
 
