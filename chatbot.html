@@ -35,7 +35,6 @@
             chatbot iframe {
                 display: block;
                 border-style:none;
-                <!--  this should be a comment           margin: 0 auto; -->
                 float:left;
             }
         </style>
@@ -55,9 +54,12 @@
         <iframe style="float: left; height: 630px; width: 580px" src="https://healthcare-bot-62emxs2gw2d3c.azurewebsites.net/"></iframe>
 
         <div id='map' style='float: right; display: none; width: 630px; height: 580px;'>
-
         </div>
-        <button onclick = "show_map()">Show Map</button>
+        <form name="user_time" action="" method="get" style='float: right; width: 630px; height: 30px;'>
+            Enter a time that works for you: <br>
+            <input type = "text" name="inputbox" value="">
+        </form>
+        <button onclick = "show_map()">Begin Scheduling</button>
 
     </body>
 

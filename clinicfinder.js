@@ -51,6 +51,14 @@ function setup_map(center) {
 function show_map() {
     var map_div = document.getElementById("map");
     map_div.style.display = "block";
+    var textbox_div = document.createElement("INPUT");
+    textbox_div.setAttribute("type", "text");
+}
+//once the times that work for the user are retrieved, pass this to the python script to determine
+//a doctor that can see them at one of those times.
+function retrieve_data(form) { 
+    var data_rec = form.inputbox.value;
+
 }
 
 
