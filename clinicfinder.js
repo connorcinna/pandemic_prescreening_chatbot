@@ -22,7 +22,7 @@ function error_location() {
 }
 function setup_map(center) {
         map = new mapboxgl.Map({
-            container: 'document.getElementById("right_side").getElementsByClassName("map")',
+            container: document.getElementById("right_side").getElementsByClassName("map")[0],
             style: 'mapbox://styles/mapbox/streets-v11', 
             center: center,
             maxBounds: [[-180, -85], [180, 85]],
