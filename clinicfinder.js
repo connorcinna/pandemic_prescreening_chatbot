@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29ubm9yY2lubmEiLCJhIjoiY2treTltM2JzMDZhdzJ4cW5ra3pkNm50eSJ9.5MY9Wtm_GsEDsOAMTBXVOg';
 //XMLHttpRequest.setRequestHeader('Access-Control-Allow-Origin', 'https://screeningchatbot.z13.web.core.windows.net');
 
-
+let destination_node;
 //get current users location with the Geolocation API
 if (!navigator.geolocation){
     console.log('error loading geolocation API');
@@ -41,7 +41,7 @@ function setup_map(center) {
     map.on('load', function () {
     //execute this code every 2 seconds
     window.setInterval(function () {
-        var destination_node = document.getElementById("mapboxgl-directions-destination-input");
+        destination_node = document.getElementById("mapboxgl-directions-destination-input");
         var html_content = destination_node.innerHTML;
         var text_content = destination_node.textContent;
         if (typeof text_content != null) { console.log(text_content); }
@@ -52,11 +52,20 @@ function setup_map(center) {
 }
 
 function show_map() {
+    /*
     var map_div = document.getElementById("map");
-    map_div.style.display = "block";
+    map_div.style.display = "inline-block";
     var textbox = document.getElementById("user_time");
-    textbox.style.display = "block";
-    textbox.setAttribute("type", "text");
+    textbox.style.display = "inline-block";
+//    textbox.setAttribute("type", "text");
+    var output = document.getElementById("output");
+    output.style.display = "inline-block";
+//    output.setAttribute("type", "text");
+//    */
+
+    var right_side = document.getElementById("right_side");
+    right_side.style.display = "block";
+    var textbox = right_side.getElementsByClassName("user_time")[0];
     textbox.addEventListener("keydown", function (e) {
         if (e.code === "Enter") retrieve_data(e);
     });
@@ -77,9 +86,13 @@ function http_get(url, callback) {
 function retrieve_data(e) { 
     var data_rec = e.target.value;
     console.log(data_rec);
-    http_get('https://screeningchatbot.z13.web.core.windows.net/schedule.py', function(request) {
+    var output_box = document.getElementById("right_side").getElementsByClassName("output")[0];
+    //note; this is example output, this will be changed later to the http_request 
+    output_box.value = "Dr. Shepherd at St. Mary's Health Center is available at " + data_rec + " to see you! Appointment successfully scheduled for " + data_rec;
+/*    http_get('https://screeningchatbot.z13.web.core.windows.net/schedule.py', function(request) {
       console.log(request.responseText);  
     });
+    */
 
 }
 

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-Access-Control-Allow-Origin: https://screeningchatbot.z13.web.core.windows.net
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -54,12 +53,29 @@ Access-Control-Allow-Origin: https://screeningchatbot.z13.web.core.windows.net
 
         <iframe style="float: left; height: 630px; width: 580px" src="https://healthcare-bot-62emxs2gw2d3c.azurewebsites.net/"></iframe>
 
-        <div id='map' style='float: right; display: none; width: 630px; height: 580px;'>
+        <div id='right_side' style='float:right; display:none;'>
+            <div class='map' style='width: 630px; height: 580px; vertical-allign:middle;'>
+            </div>
+            <div class='user_time' method="get" style='width: 630px; height: 30px; vertical-allign:middle;'>
+                Enter a time that works for you: <br>
+                <input type = "text" name="inputbox" value="">
+            </div></br></br>
+            <textarea class='output' rows = "5" cols = "60" name = "outputbox" style='vertical-allign:middle;'>
+
+            </textarea>
+
         </div>
-        <div id='user_time' method="get" style='float: right; display: none; width: 630px; height: 30px;'>
+        <!--
+        <div id='map' style='float: right; display: none; width: 630px; height: 580px; vertical-allign:middle;'>
+        </div>
+        <div id='user_time' method="get" style='float: right; display: none; width: 630px; height: 30px; vertical-allign:middle;'>
             Enter a time that works for you: <br>
             <input type = "text" name="inputbox" value="">
         </div>
+        <textarea id='output' rows = "5" cols = "60" name = "outputbox" style='float: right; display: none; vertical-allign:middle;'>
+
+        </textarea>
+        -->
         <button onclick = "show_map()">Begin Scheduling</button>
 
     </body>
