@@ -1,5 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29ubm9yY2lubmEiLCJhIjoiY2treTltM2JzMDZhdzJ4cW5ra3pkNm50eSJ9.5MY9Wtm_GsEDsOAMTBXVOg';
 
+
+
 //get current users location with the Geolocation API
 if (!navigator.geolocation){
     console.log('error loading geolocation API');
@@ -30,6 +32,7 @@ function setup_map(center) {
     map.addControl(nav);
     const directions = new MapboxDirections({
         accessToken : mapboxgl.accessToken
+
     });
 
     directions.setOrigin([center[0], center[1]]);
@@ -58,11 +61,24 @@ function show_map() {
         if (e.code === "Enter") retrieve_data(e);
     });
 }
+function http_get(url, callback) {
+    const request = new XMLHttpRequest();
+
+    request.open('get', url, true);
+    request.onload = function() {
+        callback(request);
+    };
+    request.send();
+}
 //once the times that work for the user are retrieved, pass this to the python script to determine
 //a doctor that can see them at one of those times.
+//the return value for this function is a string that represents TIME. e.g. 6:30 PM
 function retrieve_data(e) { 
     var data_rec = e.target.value;
     console.log(data_rec);
+    http_get('https://screeningchatbot.z13.web.core.windows.net/schedule.py', function(request) {
+      console.log(request.responseText);  
+    });
 
 }
 
