@@ -1,5 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29ubm9yY2lubmEiLCJhIjoiY2treTltM2JzMDZhdzJ4cW5ra3pkNm50eSJ9.5MY9Wtm_GsEDsOAMTBXVOg';
-
+//XMLHttpRequest.setRequestHeader('Access-Control-Allow-Origin', 'https://screeningchatbot.z13.web.core.windows.net');
 
 
 //get current users location with the Geolocation API
@@ -61,10 +61,11 @@ function show_map() {
         if (e.code === "Enter") retrieve_data(e);
     });
 }
+//this function handles sending the AJAX request for calling the python script
 function http_get(url, callback) {
     const request = new XMLHttpRequest();
-
     request.open('get', url, true);
+    request.setRequestHeader('Access-Control-Allow-Origin', 'https://screeningchatbot.z13.web.core.windows.net');
     request.onload = function() {
         callback(request);
     };
